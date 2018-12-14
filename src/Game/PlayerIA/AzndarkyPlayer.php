@@ -46,12 +46,7 @@ class AzndarkyPlayer extends Player
         {
             return parent::foeChoice();
         } else {
-            if ($this->result->getLaastChoiceFor($this->opponentSide) == parent::friendChoice()) {
-                return parent::foeChoice();
-            }
-            else {
             return $this->result->getLastScoreFor($this->opponentSide);
-            }
         }
     }
  
