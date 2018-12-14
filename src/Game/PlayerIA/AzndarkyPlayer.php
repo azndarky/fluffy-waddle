@@ -14,6 +14,7 @@ class AzndarkyPlayer extends Player
     protected $mySide;
     protected $opponentSide;
     protected $result;
+    protected $turn = 0;
 
     public function getChoice()
     {
@@ -44,9 +45,10 @@ class AzndarkyPlayer extends Player
         if ($this->result->getLastChoiceFor($this->mySide) == 0)
         {
             if ($this->result->getNbRound() % 4 == 0 && $this->result->getLastChoiceFor($this->mySide) == parent::friendChoice()) {
+                $this->turn = $this->result->getNbRound() + 1;
                 return parent::foeChoice();
             }
-            else if ($this->result->getNbRound() == 0) {
+            else if ($this->turn == $this->result->getNbRound()) {
                 return parent::friendChoice();
             } else {
                 return $this->result->getLastChoiceFor($this->opponentSide);
