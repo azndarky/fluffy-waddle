@@ -40,13 +40,18 @@ class AzndarkyPlayer extends Player
         // -------------------------------------    -----------------------------------------------------
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
- 
+
+        $this->prettyDisplay();
 
         if ($this->result->getLastChoiceFor($this->mySide) == 0)
         {
-            return parent::foeChoice();
-        } else {
-            return $this->result->getLastScoreFor($this->opponentSide);
+            if ($this->result->getNbRound() == 8) {
+                return parent::foeChoice();
+            } else if ($this->result->getNbRound() == 0) {
+                return parent::friendChoice();
+            } else {
+                return $this->result->getLastChoiceFor($this->opponentSide);
+            }
         }
     }
  
