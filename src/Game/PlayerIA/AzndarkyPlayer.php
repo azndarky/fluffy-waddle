@@ -41,8 +41,6 @@ class AzndarkyPlayer extends Player
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
 
-        $this->prettyDisplay();
-
         if ($this->result->getLastChoiceFor($this->mySide) == 0)
         {
             if ($this->result->getNbRound() % 4 == 0 && $this->result->getLastChoiceFor($this->mySide) == parent::friendChoice()) {
