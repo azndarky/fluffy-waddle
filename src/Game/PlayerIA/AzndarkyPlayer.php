@@ -44,10 +44,10 @@ class AzndarkyPlayer extends Player
 
         if ($this->result->getLastChoiceFor($this->mySide) == 0)
         {
-            /*if ($this->result->getNbRound() % 4 == 0 && $this->result->getLastChoiceFor($this->mySide) == parent::friendChoice()) {
+            if ($this->result->getNbRound() % 3 == 0 && $this->result->getLastChoiceFor($this->mySide) == parent::friendChoice()) {
                 $this->turn = $this->result->getNbRound() + 1;
                 return parent::foeChoice();
-            }*/
+            }
             if ($this->turn == $this->result->getNbRound()) {
                 return parent::friendChoice();
             } else {
